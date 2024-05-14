@@ -1,0 +1,128 @@
+import 'package:okoshki/domain/state/app/addresses_store.dart';
+import 'package:okoshki/domain/state/app/app_setting_store.dart';
+import 'package:okoshki/domain/state/app/app_store.dart';
+import 'package:okoshki/domain/state/app/services_store.dart';
+import 'package:okoshki/domain/state/customer/auth_store.dart';
+import 'package:okoshki/domain/state/customer/customer_store.dart';
+import 'package:okoshki/domain/state/customer/favorite_saloons_store.dart';
+import 'package:okoshki/domain/state/customer/map_launcher_store.dart';
+import 'package:okoshki/domain/state/customer/my_bookings_store.dart';
+import 'package:okoshki/domain/state/customer/my_comments_store.dart';
+import 'package:okoshki/domain/state/customer/saloons_list_store.dart';
+import 'package:okoshki/domain/state/saloon/auth_store.dart';
+import 'package:okoshki/domain/state/saloon/balance_store.dart';
+import 'package:okoshki/domain/state/saloon/comments_store.dart';
+import 'package:okoshki/domain/state/saloon/documents_store.dart';
+import 'package:okoshki/domain/state/saloon/history_statistics_store.dart';
+import 'package:okoshki/domain/state/saloon/master_store.dart';
+import 'package:okoshki/domain/state/saloon/photo_store.dart';
+import 'package:okoshki/domain/state/saloon/shedule_store.dart';
+import 'package:okoshki/domain/state/saloon/stock_store.dart';
+import 'package:okoshki/domain/state/saloon/saloon_store.dart';
+import 'package:okoshki/domain/state/saloon/tariffs_store.dart';
+import 'package:okoshki/domain/state/saloon/window_store.dart';
+import 'package:okoshki/domain/state/saloon/social_networks_store.dart';
+import 'package:okoshki/internal/utils/sl.dart';
+import 'package:okoshki/presentation/app/bottomsheets/contact_us/contact_us_controller.dart';
+import 'package:okoshki/presentation/app/screens/rules_contracts/rules_contracts_controller.dart';
+import 'package:okoshki/presentation/customer/bottomsheets/filters_my_booking/filters_my_booking_controller.dart';
+import 'package:okoshki/presentation/customer/bottomsheets/filters_sorting_saloons/filters_sorting_saloons_controller.dart';
+import 'package:okoshki/presentation/customer/bottomsheets/selection_city_customer/selection_city_customer_controller.dart';
+import 'package:okoshki/presentation/customer/screens/favorite_saloons/favorite_saloons_controller.dart';
+import 'package:okoshki/presentation/customer/screens/help_tip/help_tip_controller.dart';
+import 'package:okoshki/presentation/customer/screens/home/home_controller.dart';
+import 'package:okoshki/presentation/customer/screens/intro/intro_controller.dart';
+import 'package:okoshki/presentation/customer/screens/my_bookings/my_booking_controller.dart';
+import 'package:okoshki/presentation/customer/screens/my_comments/my_comments_controller.dart';
+import 'package:okoshki/presentation/customer/screens/profile/profile_controller.dart';
+import 'package:okoshki/presentation/customer/screens/search_saloons/search_saloons_controller.dart';
+import 'package:okoshki/presentation/customer/screens/settings/settings_controller.dart';
+import 'package:okoshki/presentation/customer/widgets/map/map_widget_controller.dart';
+import 'package:okoshki/presentation/saloon/bottomsheets/balance_top_up/balance_top_up_controller.dart';
+import 'package:okoshki/presentation/saloon/bottomsheets/create_stock/create_stock_controller.dart';
+import 'package:okoshki/presentation/saloon/bottomsheets/filters_history_stat/filters_history_stat_controller.dart';
+import 'package:okoshki/presentation/saloon/bottomsheets/history_balance/history_balance_controller.dart';
+import 'package:okoshki/presentation/saloon/bottomsheets/premium_connect/premium_connect_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/comments_customer/comments_customer_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/documents/documents_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/help_tip/help_tip_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/home/home_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/intro/intro_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/primary_settings/primary_settings_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/masters/masters_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/profile/profile_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/basic_data/basic_data_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/services/services_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/settings/settings_controller.dart';
+import 'package:okoshki/presentation/saloon/screens/stocks/stocks_controller.dart';
+
+Future<void> resetLazyDependencies() async {
+  //stores app
+  await sl.resetLazySingleton<AppStore>();
+  await sl.resetLazySingleton<AppSettingStore>();
+
+  //controllers app
+  await sl.resetLazySingleton<RulesContractsController>();
+  await sl.resetLazySingleton<ContactUsController>();
+
+  //stores customer
+  await sl.resetLazySingleton<AuthCustomerStore>();
+  await sl.resetLazySingleton<CustomerStore>();
+  await sl.resetLazySingleton<SaloonsListCustomerStore>();
+  await sl.resetLazySingleton<MyBookingsCustomerStore>();
+  await sl.resetLazySingleton<FavoriteSaloonsCustomerStore>();
+  await sl.resetLazySingleton<MyBookingsCustomerStore>();
+  await sl.resetLazySingleton<MyCommentsCustomerStore>();
+  await sl.resetLazySingleton<MapLauncherCustomerStore>();
+
+  //controllers customer
+  await sl.resetLazySingleton<IntroCustomerController>();
+  await sl.resetLazySingleton<HomeCustomerController>();
+  await sl.resetLazySingleton<HelpTipCustomerController>();
+  await sl.resetLazySingleton<ProfileCustomerController>();
+  await sl.resetLazySingleton<SettingsCustomerController>();
+  await sl.resetLazySingleton<SelectionCityCustomerController>();
+  await sl.resetLazySingleton<FiltersSortingSaloonsController>();
+  await sl.resetLazySingleton<FiltersMyBookingController>();
+  await sl.resetLazySingleton<SearchSaloonController>();
+  await sl.resetLazySingleton<MyBookingsCustomerController>();
+  await sl.resetLazySingleton<FavoriteSaloonsCustomerController>();
+  await sl.resetLazySingleton<MyCommentsCustomerController>();
+  await sl.resetLazySingleton<MapWidgetController>();
+
+  //stores saloon
+  await sl.resetLazySingleton<AddressesAppStore>();
+  await sl.resetLazySingleton<AuthSaloonStore>();
+  await sl.resetLazySingleton<ServicesAppStore>();
+  await sl.resetLazySingleton<SaloonStore>();
+  await sl.resetLazySingleton<MasterSaloonStore>();
+  await sl.resetLazySingleton<PhotoSaloonStore>();
+  await sl.resetLazySingleton<SheduleSaloonStore>();
+  await sl.resetLazySingleton<DocumentsSaloonStore>();
+  await sl.resetLazySingleton<SocialNetworksSaloonStore>();
+  await sl.resetLazySingleton<WindowSaloonStore>();
+  await sl.resetLazySingleton<HistoryStatisticsSaloonStore>();
+  await sl.resetLazySingleton<TariffsSaloonStore>();
+  await sl.resetLazySingleton<BalanceSaloonStore>();
+  await sl.resetLazySingleton<StockSaloonStore>();
+  await sl.resetLazySingleton<CommentsSaloonStore>();
+
+  //controllers saloon
+  await sl.resetLazySingleton<HelpTipSaloonController>();
+  await sl.resetLazySingleton<IntroSaloonController>();
+  await sl.resetLazySingleton<PrimarySettingsSaloonController>();
+  await sl.resetLazySingleton<ProfileSaloonController>();
+  await sl.resetLazySingleton<MastersSaloonController>();
+  await sl.resetLazySingleton<BasicDataSaloonController>();
+  await sl.resetLazySingleton<ServicesSaloonController>();
+  await sl.resetLazySingleton<SettingsSaloonController>();
+  await sl.resetLazySingleton<DocumentsSaloonController>();
+  await sl.resetLazySingleton<HomeSaloonController>();
+  await sl.resetLazySingleton<FiltersHistoryStatController>();
+  await sl.resetLazySingleton<PremiumConnectController>();
+  await sl.resetLazySingleton<BalanceTopUpController>();
+  await sl.resetLazySingleton<HistoryBalanceController>();
+  await sl.resetLazySingleton<StocksSaloonController>();
+  await sl.resetLazySingleton<CreateStockController>();
+  await sl.resetLazySingleton<CommentsCustomerSaloonController>();
+}

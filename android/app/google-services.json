@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257128819832",
+    "project_id": "okoshki-5b1ef",
+    "storage_bucket": "okoshki-5b1ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257128819832:android:5061e9934495050f77118d",
+        "android_client_info": {
+          "package_name": "com.okoshki.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv7VXZJY00rLaFMUpTIzX23EqYIq1T5BU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
